@@ -14,15 +14,14 @@ class _HomeageState extends State<HomePage> {
 
   Future getData() async{
 
-    var url = "http://localhost/FlutterStania/getData.php";
-    var url2 = "http://192.168.1.80/FlutterStania/getData.php";
+    //var url = "http://localhost/FlutterStania/getData.php";
+    var url2 = "http://192.168.1.80/FlutterStania/getData.php"; // Api
     var res = await http.put(Uri.parse(url2));
 
     if (res.statusCode == 200){
       var red = json.decode(res.body); 
       print(red);
     }
-
 
   }
 
