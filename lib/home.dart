@@ -1,7 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'login.dart';  // Import de la page de connexion
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,27 +8,21 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomeageState();
 }
 
+
 class _HomeageState extends State<HomePage> {
+  int _selectedIndex = 0;  // To track the current selected index in the bottom nav bar
 
-  Future getData() async{
+  // Pages corresponding to each bottom nav bar item
+  static const List<Widget> _pages = <Widget>[
+    Center(child: Text('Home Page Content', style: TextStyle(fontSize: 24))),
+    Center(child: Text('Settings Page Content', style: TextStyle(fontSize: 24))),
+    Center(child: Text('Profile Page Content', style: TextStyle(fontSize: 24))),
+  ];
 
-    //var url = "http://localhost/FlutterStania/getData.php";
-    var url2 = "http://192.168.1.80/FlutterStania/getData.php"; // Api
-    var res = await http.put(Uri.parse(url2));
-
-    if (res.statusCode == 200){
-      var red = json.decode(res.body); 
-      print(red);
-    }
-
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    getData();
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;  // Update the selected index
+    });
   }
 
   @override
@@ -38,23 +30,28 @@ class _HomeageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
+        title: const Text("Home Page"),
       ),
-      body: ListView.builder(
-        itemCount: 5,
-        itemBuilder: (cts, i){
-          return Container( 
-            color: Colors.blue[300],
-            child: const ListTile(
-              title: Text("Username"),
-              subtitle: Text("Joueur N 10"),
-              leading: CircleAvatar(
-                radius: 30,
-                child: Text("MA"),
-              ),
-              trailing: Text("Real Madrid"),
-            )
-          );
-        })
+      body: _pages[_selectedIndex],  // Show the selected page
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: _selectedIndex,  // Current selected tab
+        selectedItemColor: Colors.deepPurple,  // Color for the selected item
+        onTap: _onItemTapped,  // Update the selected index when a tab is tapped
+      ),
     );
   }
 }
