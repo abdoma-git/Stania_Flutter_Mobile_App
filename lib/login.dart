@@ -47,7 +47,7 @@ class LoginPage extends StatelessWidget {
                   // Naviguer vers la page d'accueil
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(builder: (context) => const HomePage()),
                   );
                 } else {
                   // Affiche une erreur si les champs sont vides
