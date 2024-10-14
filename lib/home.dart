@@ -46,7 +46,7 @@ class _HomeageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 32, 48, 226),
         title: const Text(
-          "Liste des Matchs",
+          "STANIA - Liste des Matchs",
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -86,9 +86,10 @@ class _HomeageState extends State<HomePage> {
                         children: [
                           if (!isOngoing)
                             Text("Score: ${match['score1']} - ${match['score2']}"),  // Show scores only if not ongoing
-                          Text("Date de début: ${match['heure_debut']}"),
-                          Text("Date de fin: ${match['heure_fin']}"),
-                          Text("Statut: ${match['status']}"),
+                            Text("Date de début: ${match['heure_debut']}"),
+                            Text("Date de fin: ${match['heure_fin']}"),
+                            Text("Statut: ${match['status']}"),
+                            
                         ],
                       ),
                     ),
