@@ -33,7 +33,7 @@ Avant de pouvoir exécuter l'application, assurez-vous que Flutter soit install�
    - Utilisez Android Studio pour configurer un émulateur Android, ou connectez un appareil physique avec le mode développeur activé.
 
 ### Installation de l'APK de STANIA :
-Si vous souhaitez installer l'APK directement sur votre appareil :
+Si vous souhaitez installer l'APK directement sur votre appareil : <b>(Installation et deploiment detaille sur le fichier</b> <a href="https://github.com/abdoma-git/Stania_Flutter_Mobile_App/blob/master/Deploiment%20de%20STANIA%20FLUTTER.pdf"> PDF </a>)
 1. **Téléchargez l'APK :**
    - Transférez l'APK de l'application STANIA sur votre appareil Android.
 
